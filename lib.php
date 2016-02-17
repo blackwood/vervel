@@ -67,6 +67,13 @@ function not_every($callback, array $arr) {
 }
 
 /**
+ * Returns false if $callback($x) is logical true for any $x in $arr, else true.
+ */
+function not_any($callback, array $arr) {
+	return !some($callback, $arr);
+}
+
+/**
  * Alias call_user_func_array to apply.
  */
 function apply($callback, array $args) {
@@ -174,7 +181,8 @@ function even($n) {
  * Returns true if number is odd.
  */
 function odd($n) {
-	return complement('even');
+	$odd = complement('even');
+	return $odd($n);
 }
 
 /**
