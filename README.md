@@ -1,6 +1,6 @@
 # vervel
 
-[![Delicious](https://img.shields.io/badge/cheese-grilled-orange.svg?style=flat-square)](http://blackwood.io)
+[![Build Status](https://travis-ci.org/blackwood/vervel.svg?branch=master)](https://travis-ci.org/blackwood/vervel) [![Delicious](https://img.shields.io/badge/cheese-grilled-orange.svg)](http://blackwood.io)
 
 vervel is an experiment in creating a functional utility library for PHP modeled as much as possible after Clojure's core library. thus its goal is to mock as many of Clojure's standard functions through aliasing, reordering of arities, or writing an implementation of the function. vervel is not currently a library which intends to bring any new data types or drastically different functionality to PHP itself, so if you're looking for laziness, persistent data structures or concurrency, maybe check back in a decade or so...
 
