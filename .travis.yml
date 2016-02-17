@@ -6,4 +6,4 @@ php:
   - '7.0'
   - hhvm
   - nightly
-script: ./test
+script: phpunit --verbose --bootstrap lib.php tests --coverage-text

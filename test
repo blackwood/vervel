@@ -1,3 +1,0 @@
-#! /usr/bin/env bash
-
-phpunit --verbose --bootstrap lib.php tests
