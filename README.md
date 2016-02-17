@@ -49,7 +49,7 @@ empty? | :x: (exists in PHP)
 every? | :white_check_mark: (see `every`)
 not-every? | :white_check_mark: (see `not_every`)
 some | :white_check_mark:
-not-any? | :white_large_square:
+not-any? | :white_check_mark: (see `not_any`)
 get | :white_large_square:
 assoc | :white_large_square:
 dissoc | :white_large_square:
