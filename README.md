@@ -28,18 +28,18 @@ Won't Support - :x:
 
 fn  |  support 
 --- | ---
-not | :white_large_square:
-and | :white_large_square:
-or  | :white_large_square:
-cond | :white_large_square:
+not | :white_check_mark:
+and | :x: (unless namespace conflict can be resolved)
+or  | :x: (unless namespace conflict can be resolved)
+cond | :x: (covered by switch case, more or less.)
 
 ### arrays (collections)
 
 fn  |  support 
 --- | ---
 count | :x: (exists in PHP)
-empty | :x: (until namespace conflict can be revolved)
-not-empty | :x: (until namespace conflict can be revolved)
+empty | :x: (unless namespace conflict can be resolved)
+not-empty | :x: (unless namespace conflict can be resolved)
 into | :x: (types not applicable)
 conj | :white_check_mark:  
 cons | :white_check_mark:  
