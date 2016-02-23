@@ -74,6 +74,13 @@ function not_any($callback, array $arr) {
 }
 
 /**
+ * Returns true if x is logical false, false otherwise.
+ */
+function not($x) {
+	return $x ? FALSE : TRUE;
+}
+
+/**
  * Alias call_user_func_array to apply.
  */
 function apply($callback, array $args) {
