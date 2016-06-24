@@ -123,6 +123,13 @@ function filter($callback, array $arr, $flag=0) {
 }
 
 /**
+ * Iteratively reduce the array to a single value using a callback function.
+ */
+function reduce($callback, array $arr, $initial=null) {
+  return array_reduce($arr, $callback, $initial);
+}
+
+/**
  * Return a new array with elements for which predicate returns false.
  */
 function remove($callback, array $arr, $flag=0) {
@@ -238,4 +245,23 @@ function juxt() {
 
     return map($l, $fns);
   };
+}
+
+/**
+ * Returns true if key is present in the given collection, otherwise returns false.
+ */
+function contains(array $arr, string $key) {
+  return array_key_exists($key, $arr);
+}
+
+/**
+ * Returns a array containing only those entries in array whose key is in keys
+ */
+function select_keys(array $arr, array $keys) {
+  return reduce(function($coll, $key) use ($arr) {
+    if (contains($arr, $key)) {
+      $coll[$key] = $arr[$key];
+    }
+    return $coll;
+  }, $keys, array());
 }
