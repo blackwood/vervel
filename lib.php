@@ -250,7 +250,7 @@ function juxt() {
 /**
  * Returns true if key is present in the given collection, otherwise returns false.
  */
-function contains(array $arr, string $key) {
+function contains(array $arr, $key) {
   return array_key_exists($key, $arr);
 }
 
