@@ -2,36 +2,36 @@
 
 class CompJuxtTest extends PHPUnit_Framework_TestCase {
 
-	public function testComp() {
+  public function testComp() {
 
-		$pad = function($s) {
-			$count = strlen($s) + 5;
-		  	return str_pad($s, $count, '`~.~'); 
-		};
+    $pad = function($s) {
+      $count = strlen($s) + 5;
+        return str_pad($s, $count, '`~.~'); 
+    };
 
-		$f = comp($pad,
-				  'strrev', 
-				  'strtolower',
-				  $pad);
+    $f = comp($pad,
+          'strrev', 
+          'strtolower',
+          $pad);
 
-		$this->assertEquals("`~.~`hello world`~.~`", $f("DlRoW OlLeH"));
+    $this->assertEquals("`~.~`hello world`~.~`", $f("DlRoW OlLeH"));
 
-	}
+  }
 
-	public function anotherTestComp() {
-		$f = comp('strtoupper', 'html_entity_decode');
+  public function anotherTestComp() {
+    $f = comp('strtoupper', 'html_entity_decode');
 
-		$this->assertEquals("", $f("I'll &quot;walk&quot; the &lt;b&gt;dog&lt;/b&gt; now"));
-	}
+    $this->assertEquals("", $f("I'll &quot;walk&quot; the &lt;b&gt;dog&lt;/b&gt; now"));
+  }
 
-	public function testJuxt() {
+  public function testJuxt() {
 
-		// ((juxt first count) "Clojure Rocks")
+    // ((juxt first count) "Clojure Rocks")
 
-		$f = juxt(function($s) { return substr($s, 0, 1); }, 'strlen');
+    $f = juxt(function($s) { return substr($s, 0, 1); }, 'strlen');
 
-		$this->assertEquals(array("P", 10), $f('PHP is ok.'));
+    $this->assertEquals(array("P", 10), $f('PHP is ok.'));
 
-	}
+  }
 
 }

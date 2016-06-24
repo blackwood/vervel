@@ -4,31 +4,31 @@
  * Returns the first item in an array.
  */
 function first(array $arr) {
-	$copy = array_slice($arr, 0, 1, true);
-	return array_shift($copy);
+  $copy = array_slice($arr, 0, 1, true);
+  return array_shift($copy);
 }
 
 /**
  * Returns the last item in an array.
  */
 function last(array $arr) {
-	$copy = array_slice($arr, 0, NULL, true);
-	return array_pop($copy);
+  $copy = array_slice($arr, 0, NULL, true);
+  return array_pop($copy);
 }
 
 /**
  * Returns all but the first item in an array.
  */
 function rest(array $arr) {
-	return array_slice($arr, 1, NULL, true);
+  return array_slice($arr, 1, NULL, true);
 }
 
 /**
  * Returns all but the last item in an array.
  */
 function butlast(array $arr) {
-	$copy = array_slice($arr, 0, -1, true);
-	return $copy;
+  $copy = array_slice($arr, 0, -1, true);
+  return $copy;
 }
 
 /**
@@ -63,28 +63,28 @@ function some($callback, array $arr) {
  * Returns true if the given predicate is not true for all elements.
  */
 function not_every($callback, array $arr) {
-	return !every($callable, $arr);
+  return !every($callable, $arr);
 }
 
 /**
  * Returns false if $callback($x) is logical true for any $x in $arr, else true.
  */
 function not_any($callback, array $arr) {
-	return !some($callback, $arr);
+  return !some($callback, $arr);
 }
 
 /**
  * Returns true if x is logical false, false otherwise.
  */
 function not($x) {
-	return $x ? FALSE : TRUE;
+  return $x ? FALSE : TRUE;
 }
 
 /**
  * Alias call_user_func_array to apply.
  */
 function apply($callback, array $args) {
-	return call_user_func_array($callback, $args);
+  return call_user_func_array($callback, $args);
 }
 
 /**
@@ -92,10 +92,10 @@ function apply($callback, array $args) {
  * has the same effects, if any, and returns the opposite truth value.
  */
 function complement($f) {
-	return function() use ($f) {
-		$args = func_get_args();
-		return !apply($f, $args);
-	};
+  return function() use ($f) {
+    $args = func_get_args();
+    return !apply($f, $args);
+  };
 }
 
 /**
@@ -112,21 +112,21 @@ function complement($f) {
  * Applies to each item in array, return new array.
  */
 function map($callback, array $arr) {
-	return array_map($callback, $arr);
+  return array_map($callback, $arr);
 }
 
 /**
  * Return a new array with elements for which predicate returns true.
  */
 function filter($callback, array $arr, $flag=0) {
-	return array_filter($arr, $callback, $flag);
+  return array_filter($arr, $callback, $flag);
 }
 
 /**
  * Return a new array with elements for which predicate returns false.
  */
 function remove($callback, array $arr, $flag=0) {
-	return filter(complement($callback), $arr, $flag);
+  return filter(complement($callback), $arr, $flag);
 }
 
 /**
@@ -134,7 +134,7 @@ function remove($callback, array $arr, $flag=0) {
  * Returns a new array where x is the first element and $arr is the rest.
  */
 function cons($x, array $arr) {
-	return array_merge(array($x), $arr);
+  return array_merge(array($x), $arr);
 }
 
 /**
@@ -144,63 +144,63 @@ function cons($x, array $arr) {
  * @param & xs add'l args to be added to $arr.
  */
 function conj() {
-	$args = func_get_args();
-	$arr  = first($args);
-	return array_merge($arr, rest($args));
+  $args = func_get_args();
+  $arr  = first($args);
+  return array_merge($arr, rest($args));
 }
 
 /**
  * Alias array_merge to concat.
  */
 function concat() {
-	$arrs = func_get_args();
-	return apply('array_merge', $arrs);
+  $arrs = func_get_args();
+  return apply('array_merge', $arrs);
 }
 
 /**
  * Returns a sequence of the first item in each collection then the second, etc.
  */
 function interleave() {
-	$arrs = func_get_args();
-	$firsts = map('first', $arrs);
-	$rests  = map('rest', $arrs);
-	if (every(function($a) { return !empty($a); }, $rests)) {
-		return concat($firsts, apply('interleave', $rests));
-	}
-	return $firsts;
+  $arrs = func_get_args();
+  $firsts = map('first', $arrs);
+  $rests  = map('rest', $arrs);
+  if (every(function($a) { return !empty($a); }, $rests)) {
+    return concat($firsts, apply('interleave', $rests));
+  }
+  return $firsts;
 }
 
 /**
  * Alias implode to interpose.
  */
 function interpose($glue, array $pieces) {
-	return implode($glue, $pieces);
+  return implode($glue, $pieces);
 }
 
 /**
  * Returns true if number is even.
  */
 function even($n) {
-	return $n % 2 == 0;
+  return $n % 2 == 0;
 }
 
 /**
  * Returns true if number is odd.
  */
 function odd($n) {
-	$odd = complement('even');
-	return $odd($n);
+  $odd = complement('even');
+  return $odd($n);
 }
 
 /**
  * 
  */
 function loop(array $bindings) {
-	$args = func_get_args();
-	$exprs = rest($args);
-	if (!even(count($bindings))) {
-		throw new Exception('Bindings should be an array with an even number of values');
-	}
+  $args = func_get_args();
+  $exprs = rest($args);
+  if (!even(count($bindings))) {
+    throw new Exception('Bindings should be an array with an even number of values');
+  }
 }
 
 /**
@@ -210,32 +210,32 @@ function loop(array $bindings) {
  * https://php100.wordpress.com/2009/04/13/php-y-combinator/
  */
 function comp() {
-	$fns = func_get_args();
+  $fns = func_get_args();
 
-	return function() use ($fns) {
-		$args = func_get_args();
+  return function() use ($fns) {
+    $args = func_get_args();
 
-		$l = function($xs, $fns) use (&$l) {
-			if (empty($fns)) {
-				return $xs;
-			}
-			return $l(apply(last($fns), (array)$xs), butlast($fns));
-		};
+    $l = function($xs, $fns) use (&$l) {
+      if (empty($fns)) {
+        return $xs;
+      }
+      return $l(apply(last($fns), (array)$xs), butlast($fns));
+    };
 
-		return $l($args, $fns);
-	};
+    return $l($args, $fns);
+  };
 }
 
 function juxt() {
-	$fns = func_get_args();
+  $fns = func_get_args();
 
-	return function() use ($fns) {
-		$args = func_get_args();
+  return function() use ($fns) {
+    $args = func_get_args();
 
-		$l = function($fn) use ($args) {
-			return apply($fn, $args);
-		};
+    $l = function($fn) use ($args) {
+      return apply($fn, $args);
+    };
 
-		return map($l, $fns);
-	};
+    return map($l, $fns);
+  };
 }
