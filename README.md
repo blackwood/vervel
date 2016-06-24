@@ -43,7 +43,7 @@ not-empty | :x: (unless namespace conflict can be resolved)
 into | :x: (types not applicable)
 conj | :white_check_mark:  
 cons | :white_check_mark:  
-contains? | :white_large_square:
+contains? | :white_check_mark: (see `contains`)
 distinct? | :white_large_square:
 empty? | :x: (exists in PHP)
 every? | :white_check_mark: (see `every`)
@@ -61,13 +61,14 @@ rest  | :white_check_mark:
 butlast | :white_check_mark:
 map | :white_check_mark:
 filter | :white_check_mark:
+reduce | :white_check_mark: (note: arity of 'initial' arg preserved)
 remove | :white_check_mark:
 concat | :white_check_mark:
 interleave | :white_check_mark: (alias of `implode`, not lazy)
 interpose | :white_check_mark: (not lazy)
 zipmap | :white_large_square: (will alias `array_combine`)
 frequencies | :white_large_square: (will alias `array_count_values`)
-select-keys | :white_large_square:
+select-keys | :white_check_mark: (see `select_keys`)
 keys | :white_large_square: (will alias `array_keys`)
 vals | :white_large_square: (will alias `array_values`)
 find | :white_large_square: (maybe, could be duplicative of `get`)
