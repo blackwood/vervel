@@ -1,5 +1,7 @@
 <?php
 
+namespace v;
+
 /**
  * Returns the first item in an array.
  */
@@ -169,10 +171,10 @@ function concat() {
  */
 function interleave() {
   $arrs = func_get_args();
-  $firsts = map('first', $arrs);
-  $rests  = map('rest', $arrs);
+  $firsts = map('v\first', $arrs);
+  $rests  = map('v\rest', $arrs);
   if (every(function($a) { return !empty($a); }, $rests)) {
-    return concat($firsts, apply('interleave', $rests));
+    return concat($firsts, apply('v\interleave', $rests));
   }
   return $firsts;
 }
@@ -195,7 +197,7 @@ function even($n) {
  * Returns true if number is odd.
  */
 function odd($n) {
-  $odd = complement('even');
+  $odd = complement('v\even');
   return $odd($n);
 }
 

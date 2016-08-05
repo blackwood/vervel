@@ -1,5 +1,7 @@
 <?php
 
+use v as v;
+
 class CompJuxtTest extends PHPUnit_Framework_TestCase {
 
   public function testComp() {
@@ -9,7 +11,7 @@ class CompJuxtTest extends PHPUnit_Framework_TestCase {
         return str_pad($s, $count, '`~.~'); 
     };
 
-    $f = comp($pad,
+    $f = v\comp($pad,
           'strrev', 
           'strtolower',
           $pad);
@@ -19,7 +21,7 @@ class CompJuxtTest extends PHPUnit_Framework_TestCase {
   }
 
   public function anotherTestComp() {
-    $f = comp('strtoupper', 'html_entity_decode');
+    $f = v\comp('strtoupper', 'html_entity_decode');
 
     $this->assertEquals("", $f("I'll &quot;walk&quot; the &lt;b&gt;dog&lt;/b&gt; now"));
   }
@@ -28,7 +30,7 @@ class CompJuxtTest extends PHPUnit_Framework_TestCase {
 
     // ((juxt first count) "Clojure Rocks")
 
-    $f = juxt(function($s) { return substr($s, 0, 1); }, 'strlen');
+    $f = v\juxt(function($s) { return substr($s, 0, 1); }, 'strlen');
 
     $this->assertEquals(array("P", 10), $f('PHP is ok.'));
 

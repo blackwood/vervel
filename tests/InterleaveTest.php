@@ -1,10 +1,12 @@
 <?php
 
+use v as v;
+
 class InterleaveTest extends PHPUnit_Framework_TestCase {
 
   public function testInterleave() {
 
-    $arr = interleave([1, 2, 3, 4], ["a", "b", "c", "d", "e"], ["z", "x", "y", "z"]);
+    $arr = v\interleave([1, 2, 3, 4], ["a", "b", "c", "d", "e"], ["z", "x", "y", "z"]);
 
     $this->assertEquals($arr,
       array (
@@ -23,7 +25,7 @@ class InterleaveTest extends PHPUnit_Framework_TestCase {
       )
     );
 
-    $arr2 = interleave(array("foo" => "bar", "baz" => "quux"), array(0, 2, 4, 6));
+    $arr2 = v\interleave(array("foo" => "bar", "baz" => "quux"), array(0, 2, 4, 6));
 
     $this->assertEquals($arr2,
       array(

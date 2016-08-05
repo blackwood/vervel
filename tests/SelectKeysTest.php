@@ -1,5 +1,7 @@
 <?php 
 
+use v as v;
+
 /*
  * (select-keys {:a 1 :b 2} [:a])
  * {:a 1}
@@ -14,7 +16,7 @@ class SelectKeysTest extends PHPUnit_Framework_TestCase {
   public function testSelectKeys() {    
     $this->assertEquals(
       array('a' => 1), 
-      select_keys(
+      v\select_keys(
         array(
           'a' => 1, 
           'b' => 2
@@ -25,7 +27,7 @@ class SelectKeysTest extends PHPUnit_Framework_TestCase {
     
     $this->assertEquals(
       array('a' => 1), 
-      select_keys(
+      v\select_keys(
         array(
           'a' => 1, 
           'b' => 2
@@ -36,7 +38,7 @@ class SelectKeysTest extends PHPUnit_Framework_TestCase {
     
     $this->assertEquals(
       array('a' => 1, 'c' => 3), 
-      select_keys(
+      v\select_keys(
         array(
           'a' => 1, 
           'b' => 2,
