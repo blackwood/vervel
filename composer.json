@@ -1,0 +1,19 @@
+{
+    "name": "vervel/vervel",
+    "type": "library",
+    "description": "Functional utility methods inspired by Clojure",
+    "keywords": ["functional", "utility", "helper", "functions"],
+    "homepage": "https://github.com/blackwood/vervel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Miles Blackwood",
+            "email": "miles@blackwood.io",
+            "homepage": "http://blackwood.io",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    }
+}
