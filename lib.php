@@ -267,3 +267,11 @@ function select_keys(array $arr, array $keys) {
     return $coll;
   }, $keys, array());
 }
+
+
+/**
+ * Return true if an array is an associative array, false if sequential or empty
+ */
+function is_assoc($arr) {
+  return array_keys($arr) !== range(0, count($arr) - 1);
+}
