@@ -281,3 +281,10 @@ function is_assoc(array $arr) {
 function get(array $arr, $key, $missing=null) {
   return isset($arr[$key]) ? $arr[$key] : $missing;
 }
+
+/**
+ * Quotient of dividing numerator by denominator.
+ */
+function quot($num, $div) {
+  return (int)($num / $div);
+}

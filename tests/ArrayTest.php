@@ -20,4 +20,13 @@ class ArrayTest extends PHPUnit_Framework_TestCase {
   	$this->assertEquals(v\get(array('a' => 1, 'b' => 2), 'b'), 2);
   	$this->assertEquals(v\get(array('a' => 1, 'b' => 2), 'z', 'missing'), 'missing');
   }
+
+  public function assertMerge() {
+  	$array = array('a' => 1, 'b' => 2);
+  	$old = $array;
+  	$other = array('b' => 3, 'c' => 4);
+  	$new = array_merge($array, $other);
+  	$this->assertEquals(v\merge($array, $other), array('a' => 1, 'b' => 3, 'c' => 4));
+  	$this->assertEquals($array, $old);
+  }
 }

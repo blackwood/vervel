@@ -112,7 +112,7 @@ even? | :white_check_mark: (see `even`)
 odd? | :white_check_mark: (see `odd`)
 max | :x: (exists in PHP)
 min | :x: (exists in PHP)
-quot | :white_large_square:
+quot | :white_check_mark:
 rem | :white_large_square:
 mod | (will alias `%` operator)
 inc | :white_large_square:
