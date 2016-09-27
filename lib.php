@@ -268,10 +268,16 @@ function select_keys(array $arr, array $keys) {
   }, $keys, array());
 }
 
-
 /**
  * Return true if an array is an associative array, false if sequential or empty
  */
-function is_assoc($arr) {
+function is_assoc(array $arr) {
   return array_keys($arr) !== range(0, count($arr) - 1);
+}
+
+/**
+ * Return item in array at the given key or index.
+ */
+function get(array $arr, $key) {
+  return isset($arr[$key]) ? $arr[$key] : null;
 }
