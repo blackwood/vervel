@@ -50,7 +50,7 @@ every? | :white_check_mark: (see `every`)
 not-every? | :white_check_mark: (see `not_every`)
 some | :white_check_mark:
 not-any? | :white_check_mark: (see `not_any`)
-get | :white_large_square:
+get | :white_check_mark:
 assoc | :white_large_square:
 dissoc | :white_large_square:
 merge | :white_large_square: (will alias `array_merge` and make non-destructive)

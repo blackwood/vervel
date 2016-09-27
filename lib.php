@@ -278,6 +278,6 @@ function is_assoc(array $arr) {
 /**
  * Return item in array at the given key or index.
  */
-function get(array $arr, $key) {
-  return isset($arr[$key]) ? $arr[$key] : null;
+function get(array $arr, $key, $missing=null) {
+  return isset($arr[$key]) ? $arr[$key] : $missing;
 }

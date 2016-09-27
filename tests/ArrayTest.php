@@ -18,6 +18,6 @@ class ArrayTest extends PHPUnit_Framework_TestCase {
   	$this->assertEquals(v\get(array(1, 2, 3), 1), 2);
   	$this->assertEquals(v\get(array(1, 2, 3), 5), null);
   	$this->assertEquals(v\get(array('a' => 1, 'b' => 2), 'b'), 2);
-  	$this->assertEquals(v\get(array('a' => 1, 'b' => 2), 'b', 'missing'), 'missing');
+  	$this->assertEquals(v\get(array('a' => 1, 'b' => 2), 'z', 'missing'), 'missing');
   }
 }
