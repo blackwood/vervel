@@ -26,6 +26,13 @@ function rest(array $arr) {
 }
 
 /**
+ * Returns the second item in an array
+ */
+function second(array $arr) {
+  return first(rest($arr));
+}
+
+/**
  * Returns all but the last item in an array.
  */
 function butlast(array $arr) {
@@ -287,4 +294,19 @@ function get(array $arr, $key, $missing=null) {
  */
 function quot($num, $div) {
   return (int)($num / $div);
+}
+
+/**
+ * Returns the result of applying concat to the result of mapping f over colls
+ */
+function mapcat() {
+  $args = func_get_args();
+  return apply('v\concat', map(first($args), second($args)));
+}
+
+/**
+ * Reverse an array.
+ */
+function reverse($arr) {
+  return array_reverse($arr);
 }

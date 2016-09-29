@@ -64,6 +64,7 @@ filter | :white_check_mark:
 reduce | :white_check_mark: (note: arity of 'initial' arg preserved)
 remove | :white_check_mark:
 concat | :white_check_mark:
+reverse | :white_check_mark: (alias of `array_reverse`)
 interleave | :white_check_mark: (alias of `implode`, not lazy)
 interpose | :white_check_mark: (not lazy)
 zipmap | :white_large_square: (will alias `array_combine`)
@@ -75,7 +76,7 @@ find | :white_large_square: (maybe, could be duplicative of `get`)
 update-in | :white_large_square:
 seq | :white_large_square: (could be useful for nil punning, maybe not)
 rand-nth | :white_large_square:
-second | :white_large_square: 
+second | :white_check_mark: 
 take | :white_large_square: (not lazy)
 take-last | :white_large_square: (not lazy)
 take-nth | :white_large_square: (not lazy)
@@ -95,7 +96,7 @@ split-with | :white_large_square:
 replace | :white_large_square: 
 shuffle | :x: (`shuffle` exists, may provide another version?)
 reductions | :white_large_square: 
-mapcat | :white_large_square: 
+mapcat | :white_check_mark: 
 max-key | :white_large_square: 
 min-key | :white_large_square: 
 

@@ -29,4 +29,10 @@ class ArrayTest extends PHPUnit_Framework_TestCase {
   	$this->assertEquals(v\merge($array, $other), array('a' => 1, 'b' => 3, 'c' => 4));
   	$this->assertEquals($array, $old);
   }
+
+  public function testMapcat() {
+    $result = v\mapcat('v\reverse', array(array(3, 2, 1, 0), array(6, 5, 4), array(9, 8, 7)));
+    $expected = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);      
+    $this->assertEquals($result, $expected);
+  }
 }
