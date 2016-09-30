@@ -41,6 +41,20 @@ function butlast(array $arr) {
 }
 
 /**
+ * All keys of an array.
+ */
+function keys($arr) {
+  return array_keys($arr);
+}
+
+/**
+ * All values of an array.
+ */
+function values($arr) {
+  return array_values($arr);
+}
+
+/**
  * Returns true if the given predicate is true for all elements.
  * credit: array_every and array_some.php
  * https://gist.github.com/kid-icarus/8661319
@@ -279,7 +293,7 @@ function select_keys(array $arr, array $keys) {
  * Return true if an array is an associative array, false if sequential or empty
  */
 function is_assoc(array $arr) {
-  return array_keys($arr) !== range(0, count($arr) - 1);
+  return keys($arr) !== range(0, count($arr) - 1);
 }
 
 /**
