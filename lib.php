@@ -324,3 +324,24 @@ function mapcat() {
 function reverse($arr) {
   return array_reverse($arr);
 }
+
+/**
+ * Merge an assoc array, if keys overlap, the latter wins.
+ */
+function merge() {
+  $args = func_get_args();
+  if (!every('is_assoc', $args)) return false;
+  return apply('array_merge', $args);
+}
+
+/**
+ * Return a map of elements of coll keyed by result of f on each element.
+ * f can be a key.
+ */
+function group_by($f, array $arr) {
+  if (function_exists($f)) {
+    return reduce(function($grouped, $arg) use ($f) {
+      return merge($grouped, [$f($arg) => $arg]);
+    }, $arr, []);
+  }
+}
