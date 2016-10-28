@@ -2,6 +2,30 @@
 
 namespace v;
 
+class _V {
+  function __construct($value) {
+    $this->value = $value;
+  }
+
+  public function resolve() {
+    return $this->value;
+  }
+
+  public function __call($method, $args) {
+    if ($method === 'value') return $this->resolve();
+    $fn = __NAMESPACE__ . "\\" . $method;
+
+    if (function_exists($fn)) {
+      $this->value = call_user_func_array($fn, array_merge($args, [$this->value]));
+      return $this;
+    }
+  }
+}
+
+function _v($target) {
+  return new _V($target);
+}
+
 /**
  * Returns the first item in an array.
  */
@@ -334,6 +358,8 @@ function merge() {
   return apply('array_merge', $args);
 }
 
+// use update_in ???
+
 /**
  * Return a map of elements of coll keyed by result of f on each element.
  * f can be a key.
@@ -341,7 +367,8 @@ function merge() {
 function group_by($f, array $arr) {
   if (function_exists($f)) {
     return reduce(function($grouped, $arg) use ($f) {
-      return merge($grouped, [$f($arg) => $arg]);
+      $grouped[$f($arg)] = conj($grouped[$f($arg)], $arg);
+      return $grouped;
     }, $arr, []);
   }
 }
