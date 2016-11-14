@@ -35,4 +35,10 @@ class ArrayTest extends PHPUnit_Framework_TestCase {
     $expected = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);      
     $this->assertEquals($result, $expected);
   }
+
+  public function testDistinct() {
+    $this->assertEquals(v\distinct([1, 2, 3, 3]), [1, 2, 3]);
+    $this->assertEquals(v\is_distinct([1, 2, 3, 3]), false);
+    $this->assertEquals(v\is_distinct([1, 2, 3, 4]), true);
+  }
 }

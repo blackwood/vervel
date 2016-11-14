@@ -372,3 +372,12 @@ function group_by($f, array $arr) {
     }, $arr, []);
   }
 }
+
+function distinct() {
+  $args = func_get_args();
+  return apply('array_unique', $args);
+}
+
+function is_distinct($arr) {
+  return count(distinct($arr)) === count($arr);
+}
