@@ -365,12 +365,14 @@ function merge() {
  * f can be a key.
  */
 function group_by($f, array $arr) {
-  if (function_exists($f)) {
-    return reduce(function($grouped, $arg) use ($f) {
-      $grouped[$f($arg)] = conj($grouped[$f($arg)], $arg);
-      return $grouped;
-    }, $arr, []);
-  }
+  return reduce(function($grouped, $arg) use ($f) {
+    $val = function_exists($f) ? $f($arg) : $arg[$f];
+    if (!isset($grouped[$val])) {
+      $grouped[$val] = [];
+    }
+    $grouped[$val] = conj($grouped[$val], $arg);
+    return $grouped;
+  }, $arr, []);
 }
 
 function distinct() {
