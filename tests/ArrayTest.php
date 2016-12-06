@@ -41,4 +41,8 @@ class ArrayTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals(v\is_distinct([1, 2, 3, 3]), false);
     $this->assertEquals(v\is_distinct([1, 2, 3, 4]), true);
   }
+
+  public function testFrequencies() {
+    $this->assertEquals(v\frequencies(['a', 'b', 'a', 'a']), ['a' => 3, 'b' => 1]);
+  }
 }

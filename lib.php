@@ -383,3 +383,14 @@ function distinct() {
 function is_distinct($arr) {
   return count(distinct($arr)) === count($arr);
 }
+
+function frequencies($arr) {
+  return reduce(function($frequencies, $item) {
+    if (isset($frequencies[$item])) {
+      $frequencies[$item]++;
+    } else {
+      $frequencies[$item] = 1;
+    }
+    return $frequencies;
+  }, $arr, []);
+}
