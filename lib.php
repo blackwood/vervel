@@ -380,6 +380,30 @@ function distinct() {
   return apply('array_unique', $args);
 }
 
+function rem($num, $div) {
+  return $num % $div;
+}
+
+function is_zero($n) {
+  return $n === 0;
+}
+
+function is_pos($n) {
+  return $n > 0;
+}
+
+function mod($num, $div) {
+  // (let [m (rem num div)] 
+  //   (if (or (zero? m) (= (pos? num) (pos? div)))
+  //     m 
+  //     (+ m div))))
+  $m = rem($num, $div);
+  if (is_zero($m) || is_pos($num) === is_pos($div)) {
+    return $m;
+  }
+  return $m + $div;
+}
+
 function is_distinct($arr) {
   return count(distinct($arr)) === count($arr);
 }
